@@ -54,3 +54,17 @@ java_library_static {
     srcs: ["src/**/*.java"],
     sdk_version: "current",
 }
+
+cc_library_shared {
+    name: "libqti_vndfwk_detect_vendor",
+    srcs: ["vndfwk-detect.c"],
+    shared_libs: ["libcutils"],
+    vendor: true,
+    export_include_dirs: ["."],
+
+    compile_multilib: "both",
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
